@@ -1,0 +1,22 @@
+server:
+  port: 8071
+
+integration:
+  bank:
+    host: https://www.cnb.cz
+    api:
+      currency:
+        rate: '%s/en/financial_markets/foreign_exchange_market/exchange_rate_fixing/daily.txt?date=%s'
+      history:
+        date: '%s/en/financial_markets/foreign_exchange_market/exchange_rate_fixing/year.txt?year=%s'
+
+spring:
+  liquibase:
+    url: jdbc:postgresql://localhost:5433/projectx
+    user: developer
+    password: developer
+    default-schema: bank
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/projectx
+    username: developer
+    password: developer
